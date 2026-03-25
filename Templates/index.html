@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/estilos/diseño.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Buscador</h1>
+      <form method="POST" >
+        <input
+          type="text"
+          name="search"
+          placeholder="Escribe aquí..."
+          required
+        />
+        <button type="submit">Buscar</button>
+      </form>
+
+      
+      
+      <form action="/Preproccesor">
+        
+       <button type="submit">Preprocesado</button>
+
+      </form>
+
+      <h2>Rutas de los archivos:</h2>
+      <ul>
+          {% for path in file_paths %}
+              <li>
+                  <a href="{{ '/' + path }}" target="__blank" class = "path">
+                      {{ path }}
+                  </a>
+              </li>
+          {% endfor %}
+      </ul>
+  </body>
+    </div>
+  </body>
+</html>
+
+
+
+
+<script>
+  function decoder(){
+    $path = document.getElementById('path').value;
+    
+
+  }
+  
+</script>
