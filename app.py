@@ -39,7 +39,7 @@ except LookupError:
     nltk.download('stopwords', download_dir=str(NLTK_DATA_DIR))
     nltk.download('punkt', download_dir=str(NLTK_DATA_DIR))
     nltk.download('snowball_data', download_dir=str(NLTK_DATA_DIR))
-    nltk.download('punkt_table', download_dir=str(NLTK_DATA_DIR)    )
+    nltk.download('punkt_tab', download_dir=str(NLTK_DATA_DIR)    )
     stopWords = set(stopwords.words('spanish'))
 
 # ==============================
