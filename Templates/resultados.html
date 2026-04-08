@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Resultados para: "{{ query }}"</h1>
+
+{% if results %}
+<table>
+    <thead>
+        <tr>
+            <th>Archivo</th>
+            <th>Frecuencia palabra</th>
+            <th>Frecuencia stem</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.archivo }}</td>
+            <td>{{ r.palabra }}</td>
+            <td>{{ r.stem }}</td>
+            <td><strong>{{ r.total }}</strong></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p style="text-align:center;">No se encontraron resultados</p>
+{% endif %}
+
+<div style="text-align:center;">
+    <a href="/">Volver</a>
+</div>
+
+</body>
+</html>
