@@ -36,10 +36,18 @@ nltk.data.path.append(str(NLTK_DATA_DIR))
 try:
     stopWords = set(stopwords.words('spanish'))
 except LookupError:
+    import ssl
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
+
     nltk.download('stopwords', download_dir=str(NLTK_DATA_DIR))
     nltk.download('punkt', download_dir=str(NLTK_DATA_DIR))
     nltk.download('snowball_data', download_dir=str(NLTK_DATA_DIR))
-    nltk.download('punkt_tab', download_dir=str(NLTK_DATA_DIR)    )
+    nltk.download('punkt_tab', download_dir=str(NLTK_DATA_DIR))
     stopWords = set(stopwords.words('spanish'))
 
 # ==============================
